@@ -105,135 +105,165 @@ const characters = {
 
 const questions = [
   {
-    text: "群聊冷场时你更常见的反应是？",
+    text: "你的主页风格最接近哪种？",
     options: [
       {
-        label: "A. 直接@一圈人，把场子重新拉热。",
+        label: "A. 本人照片和动态高频更新，存在感拉满。",
         letter: "E",
-        bonus: { 草籽: 2, 端主席: 1, 豪子: 1 },
+        bonus: { 皇家驿: 2, 端主席: 2, 豪子: 1 },
       },
       {
-        label: "B. 先看一会儿，不急着发言。",
-        letter: "I",
-        bonus: { 药: 1, 班长: 1, 仲: 1 },
-      },
-    ],
-  },
-  {
-    text: "你的社交媒体更像哪种风格？",
-    options: [
-      {
-        label: "A. 本人照片和动态持续更新。",
-        letter: "E",
-        bonus: { 皇家驿: 2, 端主席: 2, 草籽: 1 },
-      },
-      {
-        label: "B. 分身账号或低曝光运营（比如猫账号）。",
+        label: "B. 用分身号或猫账号记录日常，尽量低曝光。",
         letter: "I",
         bonus: { 药: 3, 钩子: 1, 仲: 1 },
       },
+      {
+        label: "C. 评论区到处串场，看到熟人就顺手@一圈。",
+        letter: "E",
+        bonus: { 草籽: 3, 豪子: 1 },
+      },
     ],
   },
   {
-    text: "社交称呼上你更接近？",
+    text: "群聊冷场时你通常怎么做？",
     options: [
       {
-        label: "A. 熟不熟都能先叫“老公/兄弟”拉近关系。",
+        label: "A. 直接抛梗点名，把场子热起来。",
+        letter: "E",
+        bonus: { 草籽: 2, 豪子: 1, 端主席: 1 },
+      },
+      {
+        label: "B. 先观察节奏，确认氛围再发言。",
+        letter: "I",
+        bonus: { 班长: 1, 仲: 1, 药: 1 },
+      },
+      {
+        label: "C. 私聊关键人先串好线，再把话题带回群里。",
+        letter: "E",
+        bonus: { 套子: 1, 草籽: 1, 端主席: 1 },
+      },
+    ],
+  },
+  {
+    text: "第一次和人熟络时，你更常用哪种称呼？",
+    options: [
+      {
+        label: "A. 熟不熟都可以先叫“老公/兄弟”拉近距离。",
         letter: "E",
         bonus: { 豪子: 3, 草籽: 1 },
       },
       {
-        label: "B. 先正常称呼，熟了再说。",
+        label: "B. 先正常称呼，熟了之后再放开。",
         letter: "I",
         bonus: { 班长: 1, 药: 1, 皇家驿: 1 },
       },
     ],
   },
   {
-    text: "刷到和自己没关系的陌生 post，你会？",
+    text: "刷到和自己无关的陌生 post，你会？",
     options: [
       {
-        label: "A. 也会忍不住评论两句。",
+        label: "A. 忍不住评论两句，顺手加入话题。",
         letter: "E",
         bonus: { 草籽: 3, 豪子: 1 },
       },
       {
-        label: "B. 划走，不参与。",
+        label: "B. 直接划走，不太参与陌生讨论。",
         letter: "I",
         bonus: { 钩子: 1, 班长: 1, 仲: 1 },
       },
+      {
+        label: "C. 先收藏或私聊，不会公开留言。",
+        letter: "I",
+        bonus: { 药: 1, 仲: 1 },
+      },
     ],
   },
   {
-    text: "你更偏好的外在风格是？",
+    text: "你更偏好的外在表达是？",
     options: [
       {
-        label: "A. 渔夫帽/AAPE/长发吉他/cos 这种高辨识度表达。",
+        label: "A. 长发吉他/cos/强识别造型，先让人记住。",
         letter: "T",
-        bonus: { "Rich开": 2, 钩子: 2, 端主席: 1 },
+        bonus: { 钩子: 2, 端主席: 2, "Rich开": 1 },
       },
       {
-        label: "B. 黑大衣、阴湿氛围或中年大叔式稳态穿搭。",
+        label: "B. 黑大衣阴湿氛围或稳态穿搭，审美一致优先。",
         letter: "C",
         bonus: { 仲: 2, 皇家驿: 2 },
       },
+      {
+        label: "C. 干净朴素、眼镜日常，舒适耐看就行。",
+        letter: "C",
+        bonus: { 药: 2, 班长: 1 },
+      },
     ],
   },
   {
-    text: "项目翻车后，你更可能怎么对外说？",
+    text: "项目翻车后，你对外更可能怎么说？",
     options: [
       {
-        label: "A. 强调是自己主动离开。",
+        label: "A. 先把话术掌握住，强调是自己主动离场。",
         letter: "T",
-        bonus: { 钩子: 3, 套子: 1 },
+        bonus: { 钩子: 3, 套子: 2 },
       },
       {
-        label: "B. 承认失利，继续复盘推进。",
+        label: "B. 直接承认失利，复盘后继续推进。",
         letter: "C",
         bonus: { 班长: 3, 药: 1 },
       },
     ],
   },
   {
-    text: "关于“自我存在感”，你更接近？",
+    text: "在公共场景表达观点时，你更像？",
     options: [
       {
-        label: "A. 该高调就高调，自恋也没问题。",
+        label: "A. 观点先讲满，先把存在感打出来。",
         letter: "T",
-        bonus: { 疯子: 2, 草籽: 1, 豪子: 1 },
+        bonus: { 疯子: 2, 草籽: 1, 端主席: 1 },
       },
       {
-        label: "B. 平时偏克制，偶尔才表达一下。",
+        label: "B. 先听再总结，表达控制在关键点。",
         letter: "C",
-        bonus: { 皇家驿: 2, 仲: 1, 药: 1 },
+        bonus: { 班长: 2, 仲: 1, 皇家驿: 1 },
       },
     ],
   },
   {
-    text: "在组织里你通常是？",
+    text: "运营个人人设时，你更接近哪一种？",
     options: [
       {
-        label: "A. 站到台前控场的人。",
+        label: "A. 头像签名都要有记忆点，抓眼优先。",
         letter: "T",
-        bonus: { 端主席: 3, 草籽: 1 },
+        bonus: { gig: 2, 疯子: 1, 草籽: 1 },
       },
       {
-        label: "B. 把流程和执行 quietly 拉齐的人。",
+        label: "B. 风格统一但不过度喧哗，画面感最重要。",
         letter: "C",
-        bonus: { 班长: 2, 药: 2 },
+        bonus: { 仲: 2, 皇家驿: 2 },
+      },
+      {
+        label: "C. 看起来像事业批，也会给自己加点“装逼感”。",
+        letter: "T",
+        bonus: { 钩子: 2, 套子: 1 },
       },
     ],
   },
   {
-    text: "给对象过生日你更可能？",
+    text: "给对象过生日，你更可能怎么安排？",
     options: [
       {
-        label: "A. 写歌/写诗/送纪念物，情绪价值先到位。",
+        label: "A. 写歌/写诗/小作文，先把情绪价值给满。",
         letter: "R",
-        bonus: { "Rich开": 3, 疯子: 1, 皇家驿: 1 },
+        bonus: { "Rich开": 3, 皇家驿: 1 },
       },
       {
-        label: "B. 预算和安排先清楚，务实一点。",
+        label: "B. 礼物和仪式拉满（钻戒、香水这类）。",
+        letter: "R",
+        bonus: { 疯子: 3, 豪子: 1 },
+      },
+      {
+        label: "C. 先做预算和流程，确保安排稳稳落地。",
         letter: "P",
         bonus: { 班长: 2, 草籽: 1, 套子: 1 },
       },
@@ -243,59 +273,74 @@ const questions = [
     text: "你更常发哪类内容？",
     options: [
       {
-        label: "A. #身边的风景 #生活手记 这类日常表达。",
+        label: "A. #生活手记 #身边风景 这类日常记录。",
         letter: "R",
-        bonus: { 药: 2, 皇家驿: 1, 仲: 1 },
+        bonus: { 药: 2, 仲: 1, 皇家驿: 1 },
       },
       {
-        label: "B. 作品集、进度、结果和路径。",
+        label: "B. 作品、进度、结果和方法论。",
         letter: "P",
         bonus: { gig: 2, 班长: 2, 钩子: 1 },
       },
-    ],
-  },
-  {
-    text: "空闲时间你更常见的状态是？",
-    options: [
       {
-        label: "A. 看甄嬛、写诗、看电影，先照顾情绪。",
+        label: "C. 聚会和互动片段，主打气氛和关系感。",
         letter: "R",
-        bonus: { 皇家驿: 2, gig: 1, 仲: 1 },
-      },
-      {
-        label: "B. 打游戏或推进任务，先把事做完。",
-        letter: "P",
-        bonus: { 钩子: 2, 药: 2, 班长: 1 },
+        bonus: { 豪子: 2, 草籽: 1 },
       },
     ],
   },
   {
-    text: "处理亲密关系时，你更像？",
+    text: "朋友失恋来找你，你第一反应是？",
     options: [
       {
-        label: "A. 礼物和仪式先给到（香水、手链这类）。",
+        label: "A. 先陪聊共情，把情绪接住。",
         letter: "R",
-        bonus: { 疯子: 2, "Rich开": 2, 豪子: 1 },
+        bonus: { 皇家驿: 2, 仲: 1, "Rich开": 1 },
       },
       {
-        label: "B. 先把现实安排和长期计划讲清楚。",
+        label: "B. 直接给可执行方案，帮他把节奏拉回来。",
         letter: "P",
-        bonus: { 班长: 2, 套子: 1, 草籽: 1 },
+        bonus: { 班长: 2, 套子: 1, gig: 1 },
+      },
+      {
+        label: "C. 先约出来喝一杯，把状态救回来再说。",
+        letter: "R",
+        bonus: { 豪子: 2, 疯子: 1 },
       },
     ],
   },
   {
-    text: "竞争机会来了，你会？",
+    text: "关系推进时你更像哪一派？",
     options: [
       {
-        label: "A. 主动做局抢位，关系线复杂也推进。",
+        label: "A. 重纪念感，愿意公开表达心意。",
+        letter: "R",
+        bonus: { "Rich开": 2, 疯子: 2 },
+      },
+      {
+        label: "B. 少说多做，重点在长期安排。",
+        letter: "P",
+        bonus: { 班长: 2, 草籽: 1, 套子: 1 },
+      },
+    ],
+  },
+  {
+    text: "竞争机会出现时，你会？",
+    options: [
+      {
+        label: "A. 主动做局抢位，关系复杂也会推进。",
         letter: "A",
         bonus: { 套子: 3, 草籽: 1, 端主席: 1 },
       },
       {
-        label: "B. 随缘一点，先喝一杯再看。",
+        label: "B. 先观察，不急着下注。",
         letter: "F",
-        bonus: { 豪子: 3, 皇家驿: 1 },
+        bonus: { 仲: 2, 药: 1, 班长: 1 },
+      },
+      {
+        label: "C. 看心情和气氛，随缘参与。",
+        letter: "F",
+        bonus: { 豪子: 2, 皇家驿: 1 },
       },
     ],
   },
@@ -303,22 +348,22 @@ const questions = [
     text: "遇到一个新方向，你更可能？",
     options: [
       {
-        label: "A. 直接开社群甚至开公司。",
+        label: "A. 直接拉人开社群/做项目，先跑起来。",
         letter: "A",
-        bonus: { gig: 3, 钩子: 1, 端主席: 1 },
+        bonus: { gig: 3, 端主席: 1, 钩子: 1 },
       },
       {
-        label: "B. 先观察和试探，不急着定。",
+        label: "B. 先小范围试水，觉得对再加码。",
         letter: "F",
         bonus: { 药: 2, 仲: 1, 班长: 1 },
       },
     ],
   },
   {
-    text: "感情推进节奏你更偏向？",
+    text: "感情推进节奏上，你更偏向？",
     options: [
       {
-        label: "A. 该上强度就上（钻戒/定位共享/立刻安排）。",
+        label: "A. 该上强度就上，行动越快越安心。",
         letter: "A",
         bonus: { 疯子: 3, gig: 1 },
       },
@@ -330,60 +375,28 @@ const questions = [
     ],
   },
   {
-    text: "你更像哪种“事业批”？",
+    text: "你的长期执行方式更像？",
     options: [
       {
-        label: "A. 真事业批，持续发布设计作品和项目。",
+        label: "A. 目标定了就硬推到结果，过程再苦也扛住。",
         letter: "A",
-        bonus: { gig: 2, 端主席: 1, 班长: 1 },
+        bonus: { 班长: 3, gig: 1 },
       },
       {
-        label: "B. 看着像事业批，其实常常先打游戏。",
+        label: "B. 灵感到了冲一波，其余时间按状态来。",
         letter: "F",
-        bonus: { 钩子: 3, 药: 1 },
+        bonus: { 钩子: 2, 仲: 1, 药: 1 },
+      },
+      {
+        label: "C. 机会一来先冲，再边做边补计划。",
+        letter: "A",
+        bonus: { 草籽: 2, 端主席: 2, 套子: 1 },
       },
     ],
   },
 ];
 
-function buildMiddleOption(pair) {
-  return {
-    label: `C. 两边都沾一点，看具体场景切换（${pair.leftName}/${pair.rightName}）。`,
-    scores: { [pair.left]: 0.5, [pair.right]: 0.5 },
-    bonus: {},
-  };
-}
-
-function expandQuestionOptions(questionList) {
-  return questionList.map((question) => {
-    if (!Array.isArray(question.options) || question.options.length !== 2) {
-      return question;
-    }
-
-    const letters = question.options.map((item) => item.letter).filter(Boolean);
-    if (letters.length !== 2) {
-      return question;
-    }
-
-    const pair = pairs.find(
-      (item) =>
-        letters.includes(item.left) &&
-        letters.includes(item.right) &&
-        letters[0] !== letters[1]
-    );
-
-    if (!pair) {
-      return question;
-    }
-
-    return {
-      ...question,
-      options: [...question.options, buildMiddleOption(pair)],
-    };
-  });
-}
-
-const quizQuestions = expandQuestionOptions(questions);
+const quizQuestions = questions;
 
 const introScreen = document.getElementById("introScreen");
 const quizScreen = document.getElementById("quizScreen");
