@@ -15,19 +15,19 @@
     <header class="hero">
       <p class="eyebrow">鸿儒人格测试</p>
       <h1>测一下你是鸿儒里的谁</h1>
-      <p class="subtitle">根据人物画像做的 12 道题，选更像你的答案。</p>
+      <p class="subtitle">根据新版人物画像整理，16 道题看你最像哪位鸿儒。</p>
     </header>
 
     <section class="panel" id="introScreen">
       <h2>测试说明</h2>
-      <p>题目参考 MBTI 的双分法思路，一共 12 题。</p>
+      <p>题目参考 MBTI 的双分法思路，一共 16 题。</p>
       <p>测完会给你一个 4 字母人格码和最接近的鸿儒角色。</p>
       <button class="btn btn-primary" id="startBtn">开始测试</button>
     </section>
 
     <section class="panel hidden" id="quizScreen">
       <div class="progress-wrap">
-        <span id="progressText">第 1 / 12 题</span>
+        <span id="progressText">第 1 / 16 题</span>
         <div class="progress-track">
           <div class="progress-fill" id="progressFill"></div>
         </div>
@@ -43,6 +43,7 @@
       <p class="tagline" id="resultTagline"></p>
       <p class="bio" id="resultBio"></p>
       <p class="verdict" id="resultVerdict"></p>
+      <div class="reason-box" id="reasonBox"></div>
 
       <div class="dimension-box" id="dimensionBox"></div>
       <p class="runner-up" id="runnerUp"></p>

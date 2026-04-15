@@ -234,6 +234,21 @@ h1 {
   gap: 8px;
 }
 
+.reason-box {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.reason-item {
+  background: #fdf6ea;
+  border: 1px solid #d9c5ab;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 0.94rem;
+  color: #3b3128;
+}
+
 .dimension-item {
   background: #faf2e5;
   border: 1px solid #d9c5ab;

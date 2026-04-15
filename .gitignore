@@ -1,5 +1,6 @@
 ﻿# Local temp artifacts
 _docx/
+_docx_read/
 *.zip
 ~$*.docx
 ~WRL*.tmp
