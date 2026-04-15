@@ -10,18 +10,19 @@
   <div class="noise"></div>
   <div class="orb orb-a"></div>
   <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
 
   <main class="container">
     <header class="hero">
-      <p class="eyebrow">鸿儒人格测试</p>
+      <p class="eyebrow">鸿儒人格测试 2.0</p>
       <h1>测一下你是鸿儒里的谁</h1>
-      <p class="subtitle">根据新版人物画像整理，16 道题看你最像哪位鸿儒。</p>
+      <p class="subtitle">升级了配色与交互，每题提供更多可选答案，测试体验更贴近真实状态。</p>
     </header>
 
     <section class="panel" id="introScreen">
       <h2>测试说明</h2>
       <p>题目参考 MBTI 的双分法思路，一共 16 题。</p>
-      <p>测完会给你一个 4 字母人格码和最接近的鸿儒角色。</p>
+      <p>每题至少 3 个选项，支持“中间态/看情况”回答。</p>
       <button class="btn btn-primary" id="startBtn">开始测试</button>
     </section>
 
@@ -33,6 +34,7 @@
         </div>
       </div>
       <h2 id="questionTitle"></h2>
+      <p class="question-note" id="questionNote"></p>
       <div class="options" id="optionsWrap"></div>
     </section>
 

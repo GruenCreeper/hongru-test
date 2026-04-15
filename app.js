@@ -346,6 +346,45 @@ const questions = [
   },
 ];
 
+function buildMiddleOption(pair) {
+  return {
+    label: `C. 两边都沾一点，看具体场景切换（${pair.leftName}/${pair.rightName}）。`,
+    scores: { [pair.left]: 0.5, [pair.right]: 0.5 },
+    bonus: {},
+  };
+}
+
+function expandQuestionOptions(questionList) {
+  return questionList.map((question) => {
+    if (!Array.isArray(question.options) || question.options.length !== 2) {
+      return question;
+    }
+
+    const letters = question.options.map((item) => item.letter).filter(Boolean);
+    if (letters.length !== 2) {
+      return question;
+    }
+
+    const pair = pairs.find(
+      (item) =>
+        letters.includes(item.left) &&
+        letters.includes(item.right) &&
+        letters[0] !== letters[1]
+    );
+
+    if (!pair) {
+      return question;
+    }
+
+    return {
+      ...question,
+      options: [...question.options, buildMiddleOption(pair)],
+    };
+  });
+}
+
+const quizQuestions = expandQuestionOptions(questions);
+
 const introScreen = document.getElementById("introScreen");
 const quizScreen = document.getElementById("quizScreen");
 const resultScreen = document.getElementById("resultScreen");
@@ -353,6 +392,7 @@ const resultScreen = document.getElementById("resultScreen");
 const progressText = document.getElementById("progressText");
 const progressFill = document.getElementById("progressFill");
 const questionTitle = document.getElementById("questionTitle");
+const questionNote = document.getElementById("questionNote");
 const optionsWrap = document.getElementById("optionsWrap");
 
 const resultName = document.getElementById("resultName");
@@ -396,26 +436,34 @@ function startQuiz() {
 }
 
 function renderQuestion() {
-  const q = questions[currentIndex];
-  progressText.textContent = `第 ${currentIndex + 1} / ${questions.length} 题`;
-  progressFill.style.width = `${((currentIndex + 1) / questions.length) * 100}%`;
+  const q = quizQuestions[currentIndex];
+  progressText.textContent = `第 ${currentIndex + 1} / ${quizQuestions.length} 题`;
+  progressFill.style.width = `${((currentIndex + 1) / quizQuestions.length) * 100}%`;
   questionTitle.textContent = q.text;
+  questionNote.textContent = `本题 ${q.options.length} 选 1`;
   optionsWrap.innerHTML = "";
 
-  q.options.forEach((option) => {
+  q.options.forEach((option, index) => {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "btn option-btn";
     btn.textContent = option.label;
+    btn.style.animationDelay = `${index * 70}ms`;
     btn.addEventListener("click", () => handleAnswer(q, option));
     optionsWrap.appendChild(btn);
   });
 }
 
 function handleAnswer(question, option) {
-  letterScores[option.letter] += 1;
+  if (option.scores) {
+    Object.entries(option.scores).forEach(([letter, value]) => {
+      letterScores[letter] += value;
+    });
+  } else if (option.letter) {
+    letterScores[option.letter] += option.weight || 1;
+  }
 
-  Object.entries(option.bonus).forEach(([name, val]) => {
+  Object.entries(option.bonus || {}).forEach(([name, val]) => {
     bonusScores[name] = (bonusScores[name] || 0) + val;
   });
 
@@ -425,7 +473,7 @@ function handleAnswer(question, option) {
     bonus: option.bonus,
   });
 
-  if (currentIndex < questions.length - 1) {
+  if (currentIndex < quizQuestions.length - 1) {
     currentIndex += 1;
     renderQuestion();
     return;
@@ -434,12 +482,38 @@ function handleAnswer(question, option) {
   showResult();
 }
 
+function resolveTieByBonus(pair) {
+  let leftBonus = 0;
+  let rightBonus = 0;
+
+  Object.entries(characters).forEach(([name, info]) => {
+    const expected = info.profile[pair.key];
+    const currentBonus = bonusScores[name] || 0;
+    if (expected === pair.left) {
+      leftBonus += currentBonus;
+    } else if (expected === pair.right) {
+      rightBonus += currentBonus;
+    }
+  });
+
+  if (leftBonus === rightBonus) {
+    return pair.left;
+  }
+
+  return leftBonus > rightBonus ? pair.left : pair.right;
+}
+
 function buildType() {
   const typeMap = {};
   const letters = pairs.map((pair) => {
     const leftScore = letterScores[pair.left];
     const rightScore = letterScores[pair.right];
-    const chosen = leftScore >= rightScore ? pair.left : pair.right;
+    let chosen = pair.left;
+    if (leftScore === rightScore) {
+      chosen = resolveTieByBonus(pair);
+    } else {
+      chosen = leftScore > rightScore ? pair.left : pair.right;
+    }
     typeMap[pair.key] = chosen;
     return chosen;
   });
