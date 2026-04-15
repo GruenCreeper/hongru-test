@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>测一下你是鸿儒里的谁</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <main class="container">
+    <header class="hero">
+      <p class="eyebrow">鸿儒人格测试</p>
+      <h1>测一下你是鸿儒里的谁</h1>
+      <p class="subtitle">根据人物画像做的 12 道题，选更像你的答案。</p>
+    </header>
+
+    <section class="panel" id="introScreen">
+      <h2>测试说明</h2>
+      <p>题目参考 MBTI 的双分法思路，一共 12 题。</p>
+      <p>测完会给你一个 4 字母人格码和最接近的鸿儒角色。</p>
+      <button class="btn btn-primary" id="startBtn">开始测试</button>
+    </section>
+
+    <section class="panel hidden" id="quizScreen">
+      <div class="progress-wrap">
+        <span id="progressText">第 1 / 12 题</span>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+      <h2 id="questionTitle"></h2>
+      <div class="options" id="optionsWrap"></div>
+    </section>
+
+    <section class="panel hidden" id="resultScreen">
+      <p class="eyebrow">测试结果</p>
+      <h2 id="resultName"></h2>
+      <p class="type-badge" id="resultType"></p>
+      <p class="tagline" id="resultTagline"></p>
+      <p class="bio" id="resultBio"></p>
+      <p class="verdict" id="resultVerdict"></p>
+
+      <div class="dimension-box" id="dimensionBox"></div>
+      <p class="runner-up" id="runnerUp"></p>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="retryBtn">再测一次</button>
+        <button class="btn btn-ghost" id="copyBtn">复制结果</button>
+      </div>
+      <p class="hint">声明：仅供娱乐，不具备心理学诊断效力。</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
